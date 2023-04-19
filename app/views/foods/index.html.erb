@@ -1,1 +1,30 @@
-<h1>List of all foods</h1>
+<div class="container px-5">
+  <div class="col-md-6 offset-md-10 py-4" >
+    <%= link_to "Add Food", new_food_path, class: "btn btn-primary" %>
+  </div>
+  <div class="container px-5">
+    <h3 class="pb-3">List of foods</h3>
+    <table class="table table-sm  table-striped table-hover table-bordered ">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Measurement Unit</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col"> Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= number_to_currency(food.price) %></td>
+            <td>
+              <%= button_to "Delete", food_path(food), class: "btn btn-link", method: :delete, data: { confirm: "Are you sure you want to delete #{food.name}?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
