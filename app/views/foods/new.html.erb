@@ -1,4 +1,4 @@
-<div class="container px-5 py-3">
+<div class="container px-5">
   <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |f| %>
     <% if @food.errors.any? %>
       <div class="alert alert-danger">
@@ -9,7 +9,7 @@
         </ul>
       </div>
     <% end %>
-    <h3 class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">New Food Item</h3>
+    <h3 class="shadow-sm p-3 bg-body-tertiary rounded">New Food Item</h3>
     <div class="mb-3">
       <%= f.label :name, class: "form-label" %>
       <%= f.text_field :name, class: "form-control" %>
