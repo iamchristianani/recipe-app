@@ -13,9 +13,9 @@
           <th scope="col"> Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-group-divider">
         <% @foods.each do |food| %>
-          <tr>
+          <tr scope="row">
             <td><%= food.name %></td>
             <td><%= food.measurement_unit %></td>
             <td><%= number_to_currency(food.price) %></td>
