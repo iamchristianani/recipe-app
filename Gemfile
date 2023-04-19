@@ -77,5 +77,5 @@ group :test do
 end
 
 gem 'bootstrap'
-gem 'sassc-rails'
 gem 'jquery-rails'
+gem 'sassc-rails'

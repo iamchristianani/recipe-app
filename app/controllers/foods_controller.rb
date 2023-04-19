@@ -27,11 +27,10 @@ class FoodsController < ApplicationController
 
     if @food.destroy
       flash[:success] = 'Food deleted successfully.'
-      redirect_to foods_path
     else
       flash[:error] = 'Failed to delete food.'
-      redirect_to foods_path
     end
+    redirect_to foods_path
   end
 
   private
