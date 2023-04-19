@@ -16,9 +16,13 @@
 
 /* New food form */
 
+.width-50 {
+  width: 50%;
+}
+
 form {
   max-width: 600px;
-  margin: -40px auto 0;
+  margin: 0 auto;
 }
 
 label {
