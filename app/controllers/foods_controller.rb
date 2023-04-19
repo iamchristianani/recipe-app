@@ -1,18 +1,18 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @foods = current_user.foods.all
   end
 
   def show
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
   end
 
   def new
-    @food = Food.new
+    @food = current_user.foods.new
   end
 
   def create
-    @food = Food.new(food_params)
+    @food = current_user.foods.new(food_params)
     if @food.save
       redirect_to foods_path, notice: 'Food was successfully saved.'
     else
@@ -21,7 +21,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
 
     # authorize! :destroy, @food
 
