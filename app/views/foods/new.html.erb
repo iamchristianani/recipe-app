@@ -1,4 +1,4 @@
-<div class="container px-5">
+<div class="container">
   <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |f| %>
     <% if @food.errors.any? %>
       <div class="alert alert-danger">
