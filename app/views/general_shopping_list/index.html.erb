@@ -1,11 +1,8 @@
 <div class="container width-50">
   <h2>Shopping List</h2>
   <div class="d-flex justify-content-between">
-    <div>
-      <p>Total number of items: <%= @total_items %></p>
-      <p>Total price: <%= number_to_currency(@total_price) %></p>
-    </div>
-    <p>Recipe: <%= @recipe.name %></p>
+    <p>Amount of food items to buy: <%= @total_items %></p>
+    <p>Total value of food needed: <%= number_to_currency(@total_price) %></p>
   </div>
   <div class="table-responsive">
     <% if @shopping_list_items.present? %>
