@@ -37,22 +37,3 @@ input[type="text"] {
   border: 1px solid #ccc;
   margin-top: 0.25rem;
 }
-
-/* input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
-} */
-
-input[type="submit"]:hover {
-  background-color: #0069d9;
-}
-
-/* .cancel-link {
-  padding: 0.5rem;
-} */
