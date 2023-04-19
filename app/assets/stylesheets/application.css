@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+/* New food form */
+
+form {
+  max-width: 600px;
+  margin: -40px auto 0;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  margin-top: 0.25rem;
+}
