@@ -2,8 +2,8 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
   def change
     create_table :recipes do |t|
       t.string :name
-      t.date :preparation_time
-      t.date :cooking_time
+      t.string :preparation_time
+      t.string :cooking_time
       t.text :description
       t.boolean :public
       t.references :user, foreign_key: true
