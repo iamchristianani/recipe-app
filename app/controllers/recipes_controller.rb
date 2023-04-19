@@ -32,6 +32,31 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def shopping_list
+    @recipes = current_user.recipes.includes(:recipe_foods, :food)
+    @shopping_list_items = {}
+    @total_items = 0
+    @total_price = 0.0
+
+    return unless params[:recipe_id].present?
+
+    @recipe = current_user.recipes.find(params[:recipe_id])
+    @recipe.recipe_foods.each do |recipe_food|
+      food = recipe_food.food
+      quantity = recipe_food.quantity
+      price = food.price * quantity
+      if @shopping_list_items[food.id].present?
+        @shopping_list_items[food.id][:quantity] += quantity
+        @shopping_list_items[food.id][:price] += price
+      else
+        @shopping_list_items[food.id] = { food:, quantity:, price: }
+      end
+      @total_price += price
+    end
+    @total_items += @recipe.recipe_foods.select(:food_id).distinct.count
+    @shopping_list_items = @shopping_list_items.values.sort_by { |item| item[:food].name }
+  end
+
   private
 
   def recipe_params
