@@ -87,18 +87,17 @@ body {
   width: 50%;
 }
 
-form {
-  max-width: 600px;
+.container form {
   margin: 0 auto;
 }
 
-.label {
+.container label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
 }
 
-.input[type="text"] {
+.container input[type="text"] {
   display: block;
   width: 100%;
   padding: 0.5rem;
