@@ -15,6 +15,18 @@ RSpec.describe Recipe, type: :model do
   let!(:recipe_food2) { RecipeFood.create(recipe: apple_cake, food: sugar, quantity: 10) }
   let!(:recipe_food3) { RecipeFood.create(recipe: apple_cake, food: apple, quantity: 10) }
 
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:recipe_foods).dependent(:destroy) }
+  end
+  
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:preparation_time) }
+    it { should validate_presence_of(:cooking_time) }
+  end
+
   describe 'methods' do
     describe '#total_food_items' do
       it 'returns the total number of unique food items in the recipe' do
