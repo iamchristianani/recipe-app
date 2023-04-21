@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:user_id])
     @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.recipe_foods.where(recipe: @recipe)
   end
