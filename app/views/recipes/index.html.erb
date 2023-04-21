@@ -1,22 +1,31 @@
-<h1>List all Recipes</h1>
-<% if @recipe.blank? %>
-  <p>No recipe available</p>
-<% else %>
-  <ul class="recipes-box">
-    <% @recipe.each do |recipe| %>
-      <li class="recipe">
-        <div>
-          <a href=<%= url_for(recipe_path(recipe)) %> >
-            <p><%= recipe.name %></p>
+<div class="container px-5">
+  <div class="d-flex justify-content-between px-5 py-2" >
+    <h3 class="pb-3">List of recipes</h3>
+  </div>
+  <div class="container px-5">
+    <% if @recipe.blank? %>
+      <p>No recipe available</p>
+    <% else %>
+      <% @recipe.each do |recipe| %>
+        <div class="container-fluid mb-4 border">
+          <a href=<%= url_for(recipe_path(recipe)) %> class = 'text-decoration-none' >
+            <div class="row border border-1 align-items-center">
+              <div class="col-sm-3 p-3">
+                <h4><%= recipe.name %></h4>
+              </div>
+              <div class="col col-sm-9 overflow-hidden">
+                <p><%= recipe.description %></p>
+              </div>
+            </div>
           </a>
-          <p><%= recipe.description %></p>
-          <% if current_user.id == recipe.user_id %>
-            <%= button_to "Delete Recipe", recipe, method: :delete %>
-          <% end %>
+          <div class="mb-2 " >
+            <% if current_user.id == recipe.user_id %>
+              <%= button_to "Remove", recipe, method: :delete, class: 'btn btn-danger mt-2' %>
+            <% end %>
+          </div>
         </div>
-      </li>
+      <% end %>
     <% end %>
-  </ul>
-<% end %>
-
-<a href="<%= url_for(new_recipe_path) %>" class="button button-wide">Add New Recipe</a>
+    <%= link_to "Add Recipe", new_recipe_path, class: "btn btn-outline-primary float-right" %>
+  </div>
+</div>
