@@ -1,26 +1,26 @@
-<div>
-  <h2 class="recipe-name"><%= @recipe.name %></h2>
-  <div class="recipe-details">
+<div class="container px-5">
+  <h2 class="text-center mt-4 mb-4"><%= @recipe.name %></h2>
+  <div class="d-flex justify-content-between">
     <div>
-      <p>Preparation Time: <%= @recipe.preparation_time %></p>
-      <p>Cooking Time: <%= @recipe.cooking_time %></p>
-      <p>Steps:</p>
+      <p><span class="font-weight-bold">Preparation Time:</span> <%= @recipe.preparation_time %></p>
+      <p><span class="font-weight-bold">Cooking Time:</span> <%= @recipe.cooking_time %></p>
+      <p><span class="font-weight-bold">Steps:</span></p>
       <p><%= @recipe.description %></p>
     </div>
     <div>
       <% if current_user.id == @recipe.user_id %>
         <% if @recipe.public %>
-          <p>Current Status: Public</p>
-          <%= button_to "Change public to private", recipe_path(@recipe), method: :patch%>
+          <p><span class="font-weight-bold">Current Status:</span> Public</p>
+          <%= button_to "Change", recipe_path(@recipe), method: :patch, class: 'btn btn-success float-right' %>
         <% else %>
-          <p>Current Status: Private</p>
-          <%= button_to "Change public to public", recipe_path(@recipe), method: :patch%>
+          <p><span class="font-weight-bold">Current Status:</span> Private</p>
+          <%= button_to "Change", recipe_path(@recipe), method: :patch, class: 'btn btn-secondary float-right' %>
         <% end %>
       <% end %>
     </div>
   </div>
-  <div class="d-flex justify-content-between text-decoration-none mb-5 container">
-    <%= link_to "Generate shopping list", general_shopping_list_index_path, class: 'btn btn-secondary' %>
+  <div class="d-flex justify-content-between text-decoration-none mb-5">
+    <%= link_to "Generate shopping list",general_shopping_list_index_path, class: 'btn btn-secondary' %>
     <% if current_user.id == @recipe.user_id %>
       <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-secondary' %>
     <% end %>
