@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-between text-decoration-none mb-5 container">
-    <%= link_to "Generate shopping list",general_shopping_list_index_path, class: 'btn btn-secondary' %>
+    <%= link_to "Generate shopping list", general_shopping_list_index_path, class: 'btn btn-secondary' %>
     <% if current_user.id == @recipe.user_id %>
       <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-secondary' %>
     <% end %>
