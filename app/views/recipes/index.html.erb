@@ -7,7 +7,7 @@
       <p>No recipe available</p>
     <% else %>
       <% @recipe.each do |recipe| %>
-        <div class="container-fluid mb-4 border">
+        <div class="container-fluid mb-4 border recipe">
           <a href=<%= url_for(recipe_path(recipe)) %> class = 'text-decoration-none' >
             <div class="row border border-1 align-items-center">
               <div class="col-sm-3 p-3">
