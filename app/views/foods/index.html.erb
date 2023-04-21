@@ -1,12 +1,12 @@
 <div class="container px-5">
-  <div class="d-flex justify-content-between px-5 py-2" >
+  <div class="d-flex justify-content-between align-items-center px-5 py-2" >
     <h3 class="pb-3">List of foods</h3>
-    <%= link_to "Add Food", new_food_path, class: "btn btn-outline-primary btn-sm" %>
+    <%= link_to "Add Food", new_food_path, class: "btn btn-secondary btn-sm py-2", style: "height: 45px;" %>
   </div>
   <div class="container px-5">
-    <table class="table table-sm  table-striped table-hover table-bordered ">
+    <table class="table table-sm align-middle table-striped table-hover table-bordered ">
       <thead>
-        <tr>
+        <tr class="table-active">
           <th scope="col">Food</th>
           <th scope="col">Measurement Unit</th>
           <th scope="col">Unit Price</th>

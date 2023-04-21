@@ -3,10 +3,6 @@ class FoodsController < ApplicationController
     @foods = current_user.foods.all
   end
 
-  def show
-    @food = current_user.foods.find(params[:id])
-  end
-
   def new
     @food = current_user.foods.new
   end
