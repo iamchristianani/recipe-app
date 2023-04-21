@@ -47,51 +47,9 @@ body {
   overflow: scroll;
 }
 
-.button {
-  padding: 10px 20px;
-  background-color: #ed2c49;
-  color: #fff;
-  border-radius: 5px;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.button-wide {
-  width: 400px;
-  display: block;
-  margin-bottom: 50px;
-}
-
-.button-small {
-  width: 200px;
-  display: block;
-  margin-bottom: 50px;
-}
-
-.recipes-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.recipe {
-  padding: 20px;
+.recipe_text_area {
   width: 100%;
-}
-
-.recipe-name {
-  text-align: center;
-}
-
-.recipe-details {
-  display: flex;
-  column-gap: 50px;
-}
-
-.recipe-details-btns {
-  display: flex;
-  column-gap: 50px;
+  height: 150px;
 }
 
 /* New food form */
