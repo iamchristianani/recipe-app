@@ -1,11 +1,11 @@
 class Recipe < ApplicationRecord
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :preparation_time, presence: true
-  validates :cooking_time, presence: true
-
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :cooking_time, presence: true
+  validates :preparation_time, presence: true
 
   def total_food_items
     recipe_foods.select(:food_id).distinct.count
