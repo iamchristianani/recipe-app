@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe RecipeFood, type: :model do
   before(:example) do
     @user = User.create(name: 'Tariq', email: 'tariqtest@gmail.com', password: 'password', confirmed_at: Time.now)
-    @recipe = Recipe.create(name: 'Recipe', description: 'Description', cooking_time: '1 hour', preparation_time: '1 hour', user: @user)
+    @recipe = Recipe.create(name: 'Recipe', description: 'Description', cooking_time: '1 hour',
+                            preparation_time: '1 hour', user: @user)
     @food = Food.create(name: 'apple', measurement_unit: 'kg', price: 1.5, quantity: 45, user: @user)
     @recipe_food = RecipeFood.create(recipe: @recipe, food: @food, quantity: 1)
   end

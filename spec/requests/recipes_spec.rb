@@ -5,10 +5,11 @@ RSpec.describe RecipesController, type: :request do
 
   before(:example) do
     @user = User.create(name: 'Tariq', email: 'tariqtest@gmail.com', password: 'password', confirmed_at: Time.now)
-    @recipe = Recipe.create(name: 'Recipe', description: 'Description', cooking_time: '1 hour', preparation_time: '1 hour', user: @user)
+    @recipe = Recipe.create(name: 'Recipe', description: 'Description', cooking_time: '1 hour',
+                            preparation_time: '1 hour', user: @user)
   end
 
-  describe "GET /index" do
+  describe 'GET /index' do
     before do
       sign_in @user
       get recipes_path

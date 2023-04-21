@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe "Recipes New Page", type: :feature do
+RSpec.describe 'Recipes New Page', type: :feature do
   let!(:user) { FactoryBot.create(:user) }
   before do
     ActionMailer::Base.deliveries.clear
@@ -9,21 +9,21 @@ RSpec.describe "Recipes New Page", type: :feature do
     sign_in user
     visit new_recipe_path
   end
-  scenario "load new recipe page" do
-    expect(page).to have_content "New Recipe"
-    expect(page).to have_content "Name"
-    expect(page).to have_content "Description"
-    expect(page).to have_content "Preparation time"
-    expect(page).to have_content "Cooking time"
-    expect(page).to have_content "Public"
+  scenario 'load new recipe page' do
+    expect(page).to have_content 'New Recipe'
+    expect(page).to have_content 'Name'
+    expect(page).to have_content 'Description'
+    expect(page).to have_content 'Preparation time'
+    expect(page).to have_content 'Cooking time'
+    expect(page).to have_content 'Public'
   end
-  scenario "allows user to add a recipe" do
-    fill_in "Name", with: "Jamal Goda"
-    fill_in "Description", with: "Khao banorer ola"
-    fill_in "Preparation time", with: "1 hour"
-    fill_in "Cooking time", with: "1.5 hours"
-    check "Public"
-    click_on "Create Recipe"
-    expect(page).to have_content "Jamal Goda"
+  scenario 'allows user to add a recipe' do
+    fill_in 'Name', with: 'Jamal Goda'
+    fill_in 'Description', with: 'Khao banorer ola'
+    fill_in 'Preparation time', with: '1 hour'
+    fill_in 'Cooking time', with: '1.5 hours'
+    check 'Public'
+    click_on 'Create Recipe'
+    expect(page).to have_content 'Jamal Goda'
   end
 end
