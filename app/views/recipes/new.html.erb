@@ -1,0 +1,38 @@
+<div class="container width-50">
+  <h3 class="shadow-sm p-3 bg-body-tertiary rounded">New Recipe</h3>
+  <%= form_for @recipe, url: recipes_path, local: true, data: { turbo: false }, method: :post do |form| %>
+    <% if @recipe.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "recipe_text_area" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :preparation_time %>
+      <%= form.text_field :preparation_time %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :cooking_time %>
+      <%= form.text_field :cooking_time %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :public %>
+      <%= form.check_box :public%>
+    </div>
+    <div>
+      <%= form.submit "Create Recipe", class: "btn btn-primary" %>
+      <%= link_to "Cancel", recipes_path, class: "btn btn-primary cancel-link" %>
+    </div>
+  <% end %>
+</div>
